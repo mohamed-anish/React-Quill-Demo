@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/React-Quill-Demo/static/css/main.5ebdee35.css",
+    "main.js": "/React-Quill-Demo/static/js/main.2ff052f9.js",
+    "static/js/787.3fdda3df.chunk.js": "/React-Quill-Demo/static/js/787.3fdda3df.chunk.js",
+    "static/media/png": "/React-Quill-Demo/static/media/1e7b63404cd2fb8e6525b2fd4ee4d286.b0275d38b7b78d6dd461.png",
+    "index.html": "/React-Quill-Demo/index.html",
+    "main.5ebdee35.css.map": "/React-Quill-Demo/static/css/main.5ebdee35.css.map",
+    "main.2ff052f9.js.map": "/React-Quill-Demo/static/js/main.2ff052f9.js.map",
+    "787.3fdda3df.chunk.js.map": "/React-Quill-Demo/static/js/787.3fdda3df.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5ebdee35.css",
+    "static/js/main.2ff052f9.js"
+  ]
+}
