@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.ql-toolbar{
+  background-color: aqua;
+}
+
+.ql-editor {
+  min-height: 300px;
+  background-color: azure;
+}
