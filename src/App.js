@@ -14,12 +14,17 @@ import QuillEmoji from 'quill-emoji';
 // import QuillFindReplace from 'quill-find-replace';
 import QuillCursors from 'quill-cursors';
 import QuillBetterTable from 'quill-better-table';
+import htmlEditButton from "quill-html-edit-button";
+// import quillFocus from 'quill-focus';
+import Focus from 'quill-focus';
 
 // Register Quill modules
 Quill.register('modules/emoji', QuillEmoji);
 // Quill.register('modules/find-replace', QuillFindReplace);
 Quill.register('modules/cursors', QuillCursors);
 Quill.register('modules/better-table', QuillBetterTable);
+Quill.register('modules/htmlEditButton', htmlEditButton)
+Quill.register('modules/focus', Focus)
 
 // Quill Toolbar options
 const toolbarOptions = [
@@ -30,7 +35,6 @@ const toolbarOptions = [
   [{ 'script': 'sub' }, { 'script': 'super' }],
   [{ 'indent': '-1' }, { 'indent': '+1' }],
   [{ 'direction': 'rtl' }],
-  // [{ 'size': ['small', false, 'large', 'huge'] }],
   [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
   ['link', 'image', 'video', 'emoji'],
   ['clean'],
@@ -39,10 +43,13 @@ const toolbarOptions = [
   [{ 'color': [] }, { 'background': [] }],
   [{ 'font': [] }],
   [{ 'align': [] }],
+  [{'table':['1','2','3','4']}]
+  
 ];
 
 const QuillEditor = () => {
   const [editorHtml, setEditorHtml] = useState('');
+  const [editorHtmlValue,setEditorHtmlValue] = useState('')
 
   let editor = null;
 
@@ -69,7 +76,6 @@ const QuillEditor = () => {
         modules={{
           toolbar: toolbarOptions,
           'emoji-toolbar': true,
-          // 'find-replace': true,
           // 'better-table': true,
           table:false,
           // 'better-table': {
@@ -83,6 +89,7 @@ const QuillEditor = () => {
             bindings:QuillBetterTable.keyboardBindings
           },
           cursors: true,
+          htmlEditButton: {},
           clipboard: {
             matchVisual: false,
             allowed: {
@@ -90,6 +97,9 @@ const QuillEditor = () => {
               attributes: ['href', 'rel', 'target', 'class']
           },
           },
+          focus: {
+            focusClass: 'focused-blot',
+        },
         }}
         formats={[
           'header',
@@ -111,14 +121,20 @@ const QuillEditor = () => {
           'color',
           'background',
           'align',
+          'table',
         ]}
         value={editorHtml}
         onChange={handleChange}
       />
-      <div dangerouslySetInnerHTML={{__html: editorHtml}}>
+      <button 
+      onClick={()=>{setEditorHtmlValue(editorHtml)}}
+      style={{color:'yellow',backgroundColor:"grey",height:'30px',borderRadius:"4px",margin:"5px 0"}} >Submit Content</button>
+      <h2>Display Typing Content here below:  </h2>
+      <div dangerouslySetInnerHTML={{__html: editorHtmlValue}}>
       </div>
+      <h2>Display Content to HTML here below:</h2>
       <div>
-        {editorHtml}
+        {editorHtmlValue}
       </div>
     </div>
   );
